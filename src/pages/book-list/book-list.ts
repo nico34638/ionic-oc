@@ -1,24 +1,17 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the BookListPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { MenuController } from 'ionic-angular';
 
 @Component({
   selector: 'page-book-list',
   templateUrl: 'book-list.html',
 })
 export class BookListPage {
+  constructor(private menuCtrl: MenuController){
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BookListPage');
+  onToggleMenu(){
+    this.menuCtrl.open();
   }
 
 }

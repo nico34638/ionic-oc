@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the CdListPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { MenuController } from 'ionic-angular';
 
 @Component({
   selector: 'page-cd-list',
@@ -14,11 +7,12 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class CdListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private menuCtrl: MenuController){
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CdListPage');
+  onToggleMenu(){
+    this.menuCtrl.open();
   }
 
 }
