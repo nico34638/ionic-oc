@@ -12,7 +12,8 @@
   <ion-list>
     <button ion-item
             *ngFor="let cd of cdList; let i = index"
-            (click)="onLoadCd(i)">
+            (click)="onLoadCd(i)"
+            [ngClass]="{'isLend': cd.Lend, 'isNotLend': !cd.Lend}">
       <ion-icon name="disc"></ion-icon>
       {{ cd.name }}
     </button>

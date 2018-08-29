@@ -5,17 +5,18 @@
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>Appareils</ion-title>
+    <ion-title>Livres</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <p>
-    Ceci est la page des livres
-  </p>
+  <ion-list>
+    <button ion-item
+            *ngFor="let book of bookList; let i = index"
+            (click)="onLoadBook(i)"
+            [ngClass]="{'isLend': book.Lend, 'isNotLend': !book.Lend}">
+      <ion-icon name="book"></ion-icon>
+      {{ book.name }}
+      {{ book.Lend}}
+    </button>
+  </ion-list>
 </ion-content>
-
-<ion-footer padding>
-  <p>
-    Bas de page
-  </p>
-</ion-footer>

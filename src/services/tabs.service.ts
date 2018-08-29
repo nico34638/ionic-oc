@@ -1,6 +1,20 @@
 import { Cd } from '../models/cd';
+import { Book } from '../models/Book';
 
 export class TabsService{
+    bookList: Book[] = [
+      {
+        name: 'Caligula',
+        Author: 'Albert Camus',
+        Lend: true
+      },
+      {
+        name: 'La Centrale',
+        Author: 'Elisabeth Filhol',
+        Lend: false
+      }
+    ];
+
     cdList: Cd[] = [
       {
         name: 'Xeu',
@@ -24,9 +38,9 @@ export class TabsService{
         this.cdList[index].Lend = !this.cdList[index].Lend;
       }
       if(name === 'book'){
-        console.log('en preparation');
+        this.bookList[index].Lend = !this.bookList[index].Lend;
       }
-    
+
     }
 
 }

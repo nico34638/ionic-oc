@@ -1,18 +1,35 @@
-<!--
-  Generated template for the LendBookPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>LendBookPage</ion-title>
+    <ion-buttons>
+      <button ion-button clear (click)="dismissModal()">Fermer</button>
+    </ion-buttons>
+    <ion-title>{{ name }}</ion-title>
   </ion-navbar>
-
 </ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>{{ book.name }}</ion-card-header>
+    <ion-card-content>
+      <p> {{ book.Author }}</p>
+    </ion-card-content>
+  </ion-card>
 
-
-<ion-content padding>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button
+                full
+                color="secondary"
+                [disabled]="!book.Lend"
+                (click)="onToggleBook()">Rendre</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button
+                full
+                color="primary"
+                [disabled]="book.Lend"
+                (click)="onToggleBook()">Emprunter</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

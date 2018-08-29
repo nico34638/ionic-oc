@@ -31,5 +31,4 @@ export class LendCdPage {
     this.tabsService.changedLendOfTabs('cd', this.index);
   }
 
-
 }
