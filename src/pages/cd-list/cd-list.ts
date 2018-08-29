@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { MenuController } from 'ionic-angular';
+import { MenuController, ModalController } from 'ionic-angular';
+import { TabsService } from '../../services/tabs.service';
+import { Cd } from '../../models/Cd';
+import { LendCdPage } from './lend-cd/lend-cd';
 
 @Component({
   selector: 'page-cd-list',
@@ -7,8 +10,21 @@ import { MenuController } from 'ionic-angular';
 })
 export class CdListPage {
 
-  constructor(private menuCtrl: MenuController){
+  cdList: Cd[];
 
+  constructor(private menuCtrl: MenuController,
+              private modalCtrl: ModalController,
+              private tabsService: TabsService){
+
+  }
+
+  ionViewWillEnter(){
+    this.cdList = this.tabsService.cdList.slice();
+  }
+
+  onLoadCd(index: number){
+    let modal = this.modalCtrl.create(LendCdPage, {index: index});
+    modal.present();
   }
 
   onToggleMenu(){

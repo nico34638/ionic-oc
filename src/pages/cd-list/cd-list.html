@@ -9,7 +9,12 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <p>
-    ceci est la page des cd
-  </p>
+  <ion-list>
+    <button ion-item
+            *ngFor="let cd of cdList; let i = index"
+            (click)="onLoadCd(i)">
+      <ion-icon name="disc"></ion-icon>
+      {{ cd.name }}
+    </button>
+  </ion-list>
 </ion-content>

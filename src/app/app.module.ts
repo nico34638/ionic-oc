@@ -4,8 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-import { BookService } from '../services/book.service';
-import { CdService } from '../services/cd.service';
+import { TabsService } from '../services/tabs.service';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -43,8 +42,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     TabsPage
   ],
   providers: [
-    BookService,
-    CdService,
+    TabsService,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

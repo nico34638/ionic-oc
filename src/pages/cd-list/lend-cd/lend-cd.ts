@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the LendCdPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { NavParams, ViewController } from 'ionic-angular';
+import { Cd } from '../../../models/Cd';
+import { TabsService } from '../../../services/tabs.service';
 
 @Component({
   selector: 'page-lend-cd',
@@ -14,11 +9,27 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class LendCdPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  index: number;
+  cd: Cd;
+
+  constructor(private navParams: NavParams,
+              private viewCtrl: ViewController,
+              private tabsService: TabsService) {
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LendCdPage');
+  ngOnInit(){
+    this.index = this.navParams.get('index');
+    this.cd = this.tabsService.cdList[this.index];
   }
+
+  dismissModal(){
+    this.viewCtrl.dismiss();
+  }
+
+  onToggleCd(){
+    this.tabsService.changedLendOfTabs('cd', this.index);
+  }
+
 
 }
